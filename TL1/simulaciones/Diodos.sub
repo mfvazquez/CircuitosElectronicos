@@ -1,0 +1,492 @@
+* Library of diode model parameters
+*
+*----------------------------------------------------------------------------
+*$
+.model D1N4001	D(Is=14.11n N=1.984 Rs=33.89m Ikf=94.81 Xti=3 Eg=1.11
++		Cjo=25.89p M=.44 Vj=.3245 Fc=.5 Bv=75 Ibv=10u Tt=5.7u)
+*		Motorola
+*		Semiconductor Databook (mid 1970s)
+*		03 Jun 91	pwt	creation
+*$
+.MODEL D1N4002 D (IS=14.11E-9  N=1.984  RS=33.89E-3  IKF=94.81  XTI=3
++ EG=1.110  CJO=51.17E-12  M=.2762  VJ=.3905  FC=.5  ISR=100.0E-12
++ NR=2  BV=100.1  IBV=10  TT=4.761E-6)
+*$
+.model D1N4003 ako:D1N4001 D(Bv=300)	; use non-rep. peak voltage
+*$
+*
+* BV, IBV, EG HAVE NOT BEEN EXTRACTED AND ARE SET TO DEFAULT VALUES.
+*
+* MEASURED TRR = 203.5NS, SIMULATED TRR = 208.2NS.
+*
+*
+* RAD: PRERAD
+* TEMP: 125
+*
+*
+.SUBCKT D1N4003/125C 99   2
+D1   99    2 DFOR
+C1    2   99 9.36289E-12
+.MODEL DFOR  D          (
++         IS = 5.5415E-9
++         RS = 0.1
++          N = 1.732494
++         TT = 7.05E-7
++        CJO = 4.31731E-12
++         VJ = 0.4421822
++          M = 1.90735
++         EG = 1.11
++        XTI = 5.642014
++         KF = 0
++         AF = 1
++         FC = 0.8991
++         BV = 1E5
++        IBV = 1E-3
++ )
+.ENDS
+*$
+*
+* MANUFACTURERS PART NO. = THD4003
+* MANUFACTURER = SPRAGUE
+* TYPE: DIODE
+* SUBTYPE: RECTIFIER
+* THE FOLLOWING SECTION CONTAINS 3 PARAMETER SETS FOR NON-IRRADIATED
+* DEVICES AT VARYING TEMPERATURES OF THE 1N4003
+* PARAMETER MODELS EXTRACTED FROM MEASURED DATA
+*
+*** CAUTION: USE ONLY AT TEMPERATURE SPECIFIED.  ANY DEVIATION FROM THIS
+*             TEMPERATURE WILL PRODUCE INCORRECT RESULTS.
+* XTI, EG HAVE NOT BEEN EXTRACTED AND ARE SET TO DEFAULT VALUES.
+*
+* MEASURED TRR = 337.6NS, SIMULATED TRR =336.6NS.
+*
+* RAD: PRERAD
+* TEMP: 27
+*
+*
+.SUBCKT D1N4003/27C 99   2
+D1   99    2 DFOR
+C1    2   99 9.36289E-12
+.MODEL DFOR  D          (
++         IS = 6.12912E-9
++         RS = 0.1035407
++          N = 1.705596
++         TT = 4.65E-7
++        CJO = 4.31731E-12
++         VJ = 0.4421822
++          M = 1.90735
++         EG = 1.11
++        XTI = 3
++         KF = 0
++         AF = 1
++         FC = 0.8991
++         BV = 417
++        IBV = 1E-6
++ )
+.ENDS
+*$
+*
+* MANUFACTURERS PART NO. = THD4003
+* MANUFACTURER = SPRAGUE
+* TYPE: DIODE
+* SUBTYPE: RECTIFIER
+* THE FOLLOWING SECTION CONTAINS 2 PARAMETER SETS AT VARIOUS POST
+* NEUTRON RADIATION LEVELS OF THE 1N4003.
+* PARAMETER SETS EXTRACTED FROM MEASURED DATA
+*
+*** CAUTION: USE ONLY AT TEMPERATURE SPECIFIED. ANY DEVIATION FROM THIS
+* XTI, EG HAVE NOT BEEN EXTRACTED AND ARE SET TO DEFAULT VALUES.
+*
+* MEASURED TRR = 110.7NS, SIMULATED TRR = 108.9NS.
+*
+* RAD: 3.08E13
+* TYPE: NEUTRON
+* TEMP: 27
+*
+*
+.MODEL D1N4003/27C/RAD1  D       (
++         IS = 1.34779E-7
++         RS = 0.1
++          N = 2.067915
++         TT = 1.48E-7
++        CJO = 2.17106E-11
++         VJ = 0.4
++          M = 0.390894
++         EG = 1.11
++        XTI = 3
++         KF = 0
++         AF = 1
++         FC = 0.809613
++         BV = 345
++        IBV = 1E-6
++)
+*$
+*
+*
+* BV, IBV, XTI, EG HAVE NOT BEEN EXTRACTED AND ARE SET TO DEFAULT VALUES.
+*
+* MEASURED TRR = 12.8NS, SIMULATED TRR = 13NS.
+*
+* RAD: 3.07E14
+* TYPE: NEUTRON
+* TEMP: 27
+*
+*
+.MODEL D1N4003/27C/RAD2  D       (
++         IS = 4.30065E-7
++         RS = 0.243508
++          N = 2.603175
++         TT = 1.69E-8
++        CJO = 8.55433E-12
++         VJ = 0.7143081
++          M = 0.2393511
++         EG = 1.11
++        XTI = 3
++         KF = 0
++         AF = 1
++         FC = 0.5
++         BV = 1E5
++        IBV = 1E-3
++ )
+*$
+*
+*
+* EG HAS NOT BEEN EXTRACTED AND IS SET TO A DEFAULT VALUE.
+*
+* MEASURED TRR = 203.5NS, SIMULATED TRR = 208.2NS.
+*
+* RAD: PRERAD
+* TEMP: -55
+*
+*
+.SUBCKT D1N4003/-55C 99   2
+D1   99    2 DFOR
+C1    2   99 9.36289E-12
+.MODEL DFOR  D          (
++         IS = 5.11588E-9
++         RS = 0.1
++          N = 1.738842
++         TT = 3.E-7
++        CJO = 4.31731E-12
++         VJ = 0.4421822
++          M = 1.90735
++         EG = 1.11
++        XTI = 2.167819
++         KF = 0
++         AF = 1
++         FC = 0.8991
++         BV = 1E5
++        IBV = 1E-3
++ )
+.ENDS
+*$
+.model D1N4004 ako:D1N4001 D(Bv=600)	; use non-rep. peak voltage
+*$
+.model D1N4005 ako:D1N4001 D(Bv=900)	; use non-rep. peak voltage
+*$
+.model D1N4006 ako:D1N4001 D(Bv=1200)	; use non-rep. peak voltage
+*$
+.model D1N4007 ako:D1N4001 D(Bv=1500)	; use non-rep. peak voltage
+*$
+*$
+.model D1N4148  D(Is=2.682n N=1.836 Rs=.5664 Ikf=44.17m Xti=3 Eg=1.11 Cjo=4p
++               M=.3333 Vj=.5 Fc=.5 Isr=1.565n Nr=2 Bv=100 Ibv=100u Tt=11.54n)
+*$
+*
+*
+* BV, IBV, XTI, EG HAVE NOT BEEN EXTRACTED AND ARE SET TO DEFAULT VALUES.
+*
+* MEASURED TRR = 10.40NS, SIMULATED TRR = 5.373NS.
+*
+* RAD: PRERAD
+* TEMP= 125
+.MODEL D1N4148/125C   D      (
++         IS = 6.42601E-9
++         RS = 0.7520202
++          N = 1.8485649
++         TT = 6.303E-9
++        CJO = 1.75198E-12
++         VJ = 0.4
++          M = 0.2289422
++         EG = 1.11
++        XTI = 3
++         KF = 0
++         AF = 1
++         FC = 0.8991
++         BV = 1E5
++        IBV = 1.0E-10
++ )
+*$
+*
+* GENERIC FUNCTIONAL EQUIVALENT = 1N4148
+* MANUFACTURER = MICROSEMI
+* TYPE: DIODE
+* SUBTYPE: SWITCHING
+* THE FOLLOWING SECTION CONTAINS 3 PARAMETER SETS FOR NON-IRRADIATED
+* DEVICES AT VARYING TEMPERATURES OF THE 1N4148-1JTXV DIODE.
+* THIS MODEL CAN BE USED FOR ALL OF THE FOLLOWING DEVICES:
+* 1N4148
+* 1N4148-1
+* 1N4148-1JTXV
+* THE ROOM TEMPERATURE PRE-RAD PARAMETER SET SIMULATES NEARLY
+* IDENTICALLY TO THE -55 AND THE 125 DEG C WHEN .TEMP IS USED.  THIS
+* PARAMETER SET CAN BE USED AT ALL TEMPERATURES BETWEEN -55 AND 125 DEG
+* C.
+*
+* PARAMETER SETS EXTRACTED FROM MEASURED DATA
+*
+*** CAUTION: THE MEASURED TRR AND THE PSPICE CIRCUIT SIMULATED TRR ARE
+* DIFFERENT.  THIS COULD POTENTIALLY LEAD TO ERRORS IN CIRCUIT SIMULATIONS
+* IF USED AS A RECTIFIER OR SWITCHING DIODE.
+*** CAUTION: USE ONLY AT TEMPERATURE SPECIFIED.  ANY DEVIATION FROM THIS
+*            TEMPERATURE WILL PRODUCE INCORRECT RESULTS.
+*
+* BV, IBV, XTI, EG HAVE NOT BEEN EXTRACTED AND ARE SET TO DEFAULT VALUES.
+*
+* MEASURED TRR = 4.681NS, SIMULATED TRR = 6.544NS.
+* RAD: PRERAD
+* TEMP= 27
+.MODEL D1N4148/27C   D      (
++         IS = 1.27106E-8
++         RS = 0.7546332
++          N = 1.9215823
++         TT = 3.679E-9
++        CJO = 1.72434E-12
++         VJ = 0.3026211
++          M = 0.2
++         EG = 1.11
++        XTI = 3
++         KF = 0
++         AF = 1
++         FC = 0.998001
++         BV = 1E5
++        IBV = 1.0E-10
++ )
+*$
+*
+* 1N4148
+* GENERIC FUNCTIONAL EQUIVALENT = 1N4148
+* MANUFACTURER = MICROSEMI
+* TYPE: DIODE
+* SUBTYPE: SWITCHING
+* THIS FILE CONTAINS 3 MODELS AT VARIOUS RADIATION LEVELS OF THE
+* 1N4148-1JTXV DIODE.
+* THIS MODEL CAN BE USED FOR ALL OF THE FOLLOWING DEVICES:
+* 1N4148
+* 1N4148-1
+* 1N4148-1JTXV
+* THE ROOM TEMPERATURE PRE-RAD PARAMETER SET SIMULATES NEARLY
+* IDENTICALLY TO THE -55 AND THE 125 DEG C WHEN .TEMP IS USED.  THIS
+* PARAMETER SET CAN BE USED AT ALL TEMPERATURES BETWEEN -55 AND 125 DEG C.
+*
+* PARAMETER SETS EXTRACTED FROM MEASURED DATA
+*
+*
+*** CAUTION: THE MEASURED TRR AND THE PSPICE CIRCUIT SIMULATED TRR ARE
+* DIFFERENT.  THIS COULD POTENTIALLY LEAD TO ERRORS IN CIRCUIT SIMULATIONS IF
+* USED  AS A RECTIFIER OR SWITCHING DIODE.
+*
+*** CAUTION: USE ONLY AT TEMPERATURE SPECIFIED.  ANY DEVIATION FROM THIS
+*            TEMPERATURE WILL PRODUCE INCORRECT RESULTS.
+*
+*
+*
+* XTI, EG HAVE NOT BEEN EXTRACTED AND ARE SET TO DEFAULT VALUES.
+*
+* MEASURED TRR = 5.99NS, SIMULATED TRR = 5.79NS.
+*
+*
+* RAD: 5E12
+* TYPE: NEUTRON
+* TEMP: 27
+*
+*
+.SUBCKT D1N4148/27C/RAD1 99   2
+D1   99    2 DFOR
+C1    2   99 1.2202E-12
+.MODEL DFOR  D          (
++         IS = 1.04734E-8
++         RS = 0.7505
++          N = 1.873917
++         TT = 7.2E-9
++        CJO = 2.34983E-13
++         VJ = 0.4
++          M = 2
++         EG = 1.11
++        XTI = 3
++         KF = 0
++         AF = 1
++         FC = 0.9
++         BV = 165
++        IBV = 1E-6
++ )
+.ENDS
+*$
+*
+* XTI, EG HAVE NOT BEEN EXTRACTED AND ARE SET TO DEFAULT VALUES.
+*
+* MEASURED TRR = 5.67NS, SIMULATED TRR = 5.61NS.
+*
+*
+* RAD: 2E13
+* TYPE: NEUTRON
+* TEMP: 27
+*
+*
+.SUBCKT D1N4148/27C/RAD2 99   2
+D1   99    2 DFOR
+C1    2   99 1.30456E-12
+.MODEL DFOR  D          (
++         IS = 6.20257E-9
++         RS = 0.7388511
++          N = 1.805135
++         TT = 7.3E-9
++        CJO = 3.05464E-13
++         VJ = 0.4
++          M = 1.824741
++         EG = 1.11
++        XTI = 3
++         KF = 0
++         AF = 1
++         FC = 0.8991
++         BV = 163
++        IBV = 5E-6
++ )
+.ENDS
+*$
+*
+* MEASURED TRR = 3.4NS, SIMULATED TRR = 1.521NS.
+*
+* RAD: 2E14
+* TYPE: NEUTRON
+* TEMP= 27
+*
+.SUBCKT D1N4148/27C/RAD3 99   2
+D1   99    2 DFOR
+C1    2   99 1.34841E-12
+.MODEL DFOR  D     (
++         IS = 7.51054E-9
++         RS = 1.672287
++          N = 1.864477
++         TT = 1E-9
++        CJO = 1.652E-13
++         VJ = 0.3619
++          M = 1.721
++         EG = 1.11
++        XTI = 3
++         KF = 0
++         AF = 1
++         FC = 0.85
++         BV = 148
++        IBV = 2E-6
++ )
+.ENDS
+*$
+*
+* BV, IBV, XTI, EG HAVE NOT BEEN EXTRACTED AND ARE SET TO DEFAULT VALUES.
+*
+* MEASURED TRR = 3.379NS, SIMULATED TRR = 3.062NS.
+*
+* RAD: PRERAD
+* TEMP= -55
+.MODEL D1N4148/-55C   D      (
++         IS = 1.26351E-8
++         RS = 0.7600063
++          N = 1.953465
++         TT = 2.424E-9
++        CJO = 1.72434E-12
++         VJ = 0.3026211
++          M = 0.2
++         EG = 1.11
++        XTI = 3
++         KF = 0
++         AF = 1
++         FC = 0.998001
++         BV = 1E5
++        IBV = 1.0E-10
++ )
+*$
+*
+* GENERIC FUNCTIONAL EQUIVALENT = 1N4148
+* TYPE: DIODE
+* SUBTYPE: SWITCHING
+* THIS FILE CONTAINS 1 MODEL THAT CAN BE USED AS A TEMPERATURE TRACKING
+* MODEL FROM -55 TO 125 DEG C.
+* THIS MODEL CAN BE USED FOR ALL OF THE FOLLOWING DEVICES:
+* 1N4148
+* 1N4148-1
+* 1N4148-1JTXV
+* THE ROOM TEMPERATURE PRE-RAD PARAMETER SET SIMULATES NEARLY
+* IDENTICALLY TO THE  -55 AND THE 125 DEG C WHEN .TEMP IS USED.  THIS
+* PARAMETER SET CAN BE USED  AT ALL TEMPERATURES BETWEEN -55 AND 125 DEG
+* C.
+* PARAMETER MODELS EXTRACTED FROM MEASURED DATA.
+*
+* MEASURED TRR = 4.681NS, SIMULATED TRR = 6.544NS.
+*
+*** CAUTION: THE MEASURED TRR AND THE PSPICE CIRCUIT SIMULATED TRR ARE
+* DIFFERENT.  THIS COULD POTENTIALLY LEAD TO ERRORS IN CKT. SIMULATIONS IF
+* USED AS A RECTIFIER OR SWITCHING DIODE
+*
+* BV, IBV, XTI, EG HAVE NOT BEEN EXTRACTED AND ARE SET TO DEFAULT VALUES.
+*
+* RAD: PRERAD
+* TEMP= 27
+.MODEL D1N4148/TEMP   D      (
++         IS = 1.27106E-8
++         RS = 0.7546332
++          N = 1.9215823
++         TT = 3.679E-9
++        CJO = 1.72434E-12
++         VJ = 0.3026211
++          M = 0.2
++         EG = 1.11
++        XTI = 3
++         KF = 0
++         AF = 1
++         FC = 0.998001
++         BV = 1E5
++        IBV = 1.0E-10
++ )
+*$
+*$
+*$
+*** Zener Diodes ***
+* The parameters Ibv, Ibvl, Nbv, and Nbvl, were characterized by matching the
+* manufacturer's Zener impedance at three current levels.  The parameter Tbv1
+* is calculated directly.  The remaining parameters were characterize using
+* the Parts option.
+*$
+.model D1N4728	D(Is=11.11f Rs=6.808 Ikf=0 N=1 Xti=3 Eg=1.11 Cjo=315p M=.4346
++		Vj=.75 Fc=.5 Isr=2.595n Nr=2 Bv=3.3 Ibv=5.8452 Nbv=3.6742
++		Ibvl=.27224 Nbvl=11.715 Tbv1=-636.36u)
+*		Motorola	pid=1N4728	case=DO-41
+*		89-9-19 gjg
+*		Vz = 3.3 @ 76mA, Zz = 310 @ 1mA, Zz = 68 @ 5mA, Zz = 19 @ 20mA
+*$
+
+.model D1N4736	D(Is=1.327f Rs=1.306 Ikf=0 N=1 Xti=3 Eg=1.11 Cjo=125p M=.3144
++		Vj=.75 Fc=.5 Isr=2.575n Nr=2 Bv=6.8 Ibv=15 Nbv=.31009
++		Ibvl=149.2u Nbvl=.31028 Tbv1=485.29u)
+*		Motorola	pid=1N4736 	case=DO-41
+*		89-9-19 gjg
+*		Vz = 6.8 @ 37mA, Zz = 9.1 @ 1mA, Zz = 3.5 @ 5mA, Zz = 2 @ 20mA
+*$
+
+.model D1N4742	D(Is=1.773f Rs=2.06 Ikf=0 N=1 Xti=3 Eg=1.11 Cjo=100p M=.3894
++		Vj=.75 Fc=.5 Isr=1.799n Nr=2 Bv=12 Ibv=89.447m Nbv=1.1527
++		Ibvl=248.34n Nbvl=.8248 Tbv1=700u)
+*		Motorola	pid=1N4742	case=DO-41
+*		89-9-19 gjg
+*		Vz = 12 @ 21mA, Zz = 32 @ 1mA, Zz = 7.5 @ 5mA, Zz = 4 @ 20mA
+*$
+
+.model D1N4750	D(Is=62.63f Rs=11.28 Ikf=0 N=1 Xti=3 Eg=1.11 Cjo=40p M=.2906
++		Vj=.75 Fc=.5 Isr=1.864n Nr=2 Bv=27 Ibv=.13378 Nbv=1.5283
++		Ibvl=3.4328m Nbvl=2.3046 Tbv1=888.89u)
+*		Motorola	pid=1N4750	case=DO-41
+*		89-9-19 gjg
+*		Vz = 27 @ 9.5mA, Zz = 52 @ 1mA, Zz = 21 @ 5mA, Zz = 12 @ 20mA
+*$
+*$
+* end of library

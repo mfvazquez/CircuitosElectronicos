@@ -1,0 +1,12 @@
+.MODEL BS170 NMOS
+*Modelo para PSPICE_Orcad adaptado a las practicas de 66_08
++VTO=1.82
++RS=1.572
++RD=1.436
++IS=1E-15
++KP=.1233
++CGSO=28E-08
++CGDO=7E-08
++CBD=60E-12
++PB=1
+*$
