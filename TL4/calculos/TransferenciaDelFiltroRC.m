@@ -24,3 +24,4 @@ for i = 1:length(R)
     hold on;
 end
 legend(leyenda, 'Location', 'NorthWest');
+xaxys
