@@ -1,0 +1,73 @@
+* D:\facultad\Circuitos electronicos\CircuitosElectronicos\TL4\simulaciones\CircuitoCompletoNuevo.asc
+J1 N001 Vin N010 J201
+R1 Vin 0 1Meg
+R2 N010 0 3.3k
+R3 VC2 N001 6.8k
+V1 VC2 0 12
+V2 N009 0 SINE(0 100m 100) AC 100m
+C1 N002 N001 6.8n
+C3 0 N008 10n
+R4 0 N002 22k
+R5 N008 N001 47k
+XU1 N002 N008 N005 pot_lin Rtot=50K wiper={x}
+Q1 VC2 VB2 VE2 0 Qtip41c
+Q2 VC2 VB1 VB2 0 BC548B
+R6 VE2 0 8.2
+R7 VB1 0 100k
+R8 VC2 VB1 68k
+Q3 VC3 VB3 VE3 0 BC548B
+R9 VC2 VB3 220k
+R10 VB3 0 68k
+R11 Vout 0 8
+C4 VE2 Vout 2.2m
+R12 VC2 VC3 2.2k
+Q4 VBEfuente VBEfuente 0 0 BC548B
+R13 VC2 VBEfuente 3.3k
+Q5 VE3 VBEfuente 0 0 BC548B
+C7 VE3 N007 100µ
+R17 N007 0 100
+C8 VB1 VC3 100µ
+J2 N003 N004 N006 J201
+R14 N004 0 1Meg
+R15 N006 0 3.3k
+R16 VC2 N003 6.8k
+C2 N004 N005 100µ
+C5 VB3 N003 100µ
+.model NPN NPN
+.model PNP PNP
+.lib C:\PROGRA~2\LTC\LTSPIC~1\lib\cmp\standard.bjt
+.model NJF NJF
+.model PJF PJF
+.lib C:\PROGRA~2\LTC\LTSPIC~1\lib\cmp\standard.jft
+.MODEL J201 NJF (VTO=-0.8 BETA=0.94M LAMBDA=2M IS=114.5F RD=1 RS=1
++ CGD=4.667P CGS=2.992P M=.2271 PB=.5 FC=.5 VTOTC=-2.5M BETATCE=-.5
++ KF=604.2E-18)
+.op
+.include potentiometer_standard.lib
+.step param X list 0 0.25 0.5 0.75 1
+.MODEL Qtip41c npn
++IS=7.55826e-11 BF=260.542 NF=1.11221 VAF=100
++IKF=0.526814 ISE=1e-08 NE=2.18072 BR=26.0542
++NR=1.5 VAR=1000 IKR=3.54059 ISC=1e-08
++NC=1.63849 RB=4.56157 IRB=0.1 RBM=0.1
++RE=0.0162111 RC=0.0810556 XTB=0.1 XTI=1
++EG=1.206 CJE=1.93296e-10 VJE=0.4 MJE=0.259503
++TF=1e-08 XTF=4.06972 VTF=7.1157 ITF=0.001
++CJC=1.09657e-10 VJC=0.730921 MJC=0.23 XCJC=0.803085
++FC=0.8 CJS=0 VJS=0.75 MJS=0.5
++TR=9.01013e-08 PTF=0 KF=0 AF=1
+* Model generated on Dec 27, 2003
+* Model format: PSpice
+.model BC548B   NPN(Is=7.049f Xti=3 Eg=1.11 Vaf=62.79 Bf=374.6 Ise=68f Ne=1.576
++               Ikf=81.57m Nk=.4767 Xtb=1.5 Br=1 Isc=12.4f Nc=1.835 Ikr=3.924
++               Rc=.9747 Cjc=5.25p Mjc=.3147 Vjc=.5697 Fc=.5 Cje=11.5p
++               Mje=.6715 Vje=.5 Tr=10n Tf=410.2p Itf=1.491 Xtf=40.06 Vtf=10)
+*                               PHILIPS                         pid=bc546b      case=TO92
+*                               91-07-31 dsq
+.MODEL 2N7000 NMOS LEVEL=1 IS=1e-32
++VTO=2.236 LAMBDA=0 KP=0.0932174
++CGSO=1.79115e-07 CGDO=1.0724e-11
+.tran 0 100m 80m
+;ac dec 1000 1 22k
+.backanno
+.end
