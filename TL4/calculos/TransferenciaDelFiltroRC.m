@@ -10,7 +10,7 @@ eq4 = ' T == i2/(10e-9 *s) + i3*R2 ';
 resultado = solve(eq1, eq2, eq3, eq4,  'i1', 'i2', 'i3', 'T');
 T = resultado.T;
 
-s = 1:500e3;
+s = 1:1e6;
 R = 0:10e3:50e3;
 colores = 'rgbkym';
 leyenda = cell(length(R),1);
@@ -20,8 +20,9 @@ for i = 1:length(R)
     sistema = subs(T);
     color = colores(i);
     semilogx(s,sistema, color);
-    leyenda{i} = sprintf('R2 = %d',R2);
+    leyenda{i} = sprintf('R2 = %d Ohm',R2);
     hold on;
 end
 legend(leyenda, 'Location', 'NorthWest');
-xaxys
+ylabel('Amplificacion');
+xlabel('frecuencia [Hz]');
